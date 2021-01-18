@@ -1,1 +1,32 @@
-print([int(x) * int(y) for x in open('input.txt') for y in open('input.txt') if int(x) + int(y) == 2020][0])
+  
+package dayone
+
+import java.io.File
+
+fun main() {
+    val input = File("src/main/kotlin/dayone/input")
+        .readLines()
+        .map { it.toInt() }
+
+    fun solvePartOne(): Int = input
+        .mapNotNull { a -> if (input.contains(2020 - a)) a * (2020 - a) else null }
+        .first()
+
+    /**
+     * I'm really embarrassed for this piece of code
+     *
+     * pls just ignore it
+     */
+    fun solvePartTwo(): Int {
+        for (a in input) {
+            for (b in input) {
+                for (c in input)
+                    if (a + b + c == 2020) return a * b * c
+            }
+        }
+        return 0
+    }
+
+    println(solvePartOne())
+    println(solvePartTwo())
+}
