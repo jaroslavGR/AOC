@@ -12,11 +12,6 @@ fun main() {
         .mapNotNull { a -> if (input.contains(2020 - a)) a * (2020 - a) else null }
         .first()
 
-    /**
-     * I'm really embarrassed for this piece of code
-     *
-     * pls just ignore it
-     */
     fun solvePartTwo(): Int {
         for (a in input) {
             for (b in input) {
